@@ -1,0 +1,6 @@
+ spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 \
+              --conf spark.sql.catalog.demo=org.apache.iceberg.spark.SparkCatalog \
+              --conf spark.sql.catalog.demo.catalog-impl=org.apache.iceberg.aws.glue.GlueCatalog \
+              --conf spark.sql.catalog.demo.warehouse=s3://kafka-spark-iceberg-poc/sample_tables/ \
+              --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
+              a.py
